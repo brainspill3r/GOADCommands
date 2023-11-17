@@ -32,7 +32,7 @@ Vagrant is an open-source tool for building and managing virtualized development
 ```
 
 
-### **Enable Nested Virtualization in the VMware Host (Outer VM):**
+### Enable Nested Virtualization in the VMware Host (Outer VM):
 
 - Ensure that your VMware host (the outer VM) allows nested virtualization. This setting is often referred to as "Expose hardware-assisted virtualization to the guest OS" or something similar in VMware settings. It might be found in the virtual machine settings under the "Processor" or "CPU" section
 
@@ -44,9 +44,6 @@ Vagrant is an open-source tool for building and managing virtualized development
 To add the `VBoxManage` binary to the `PATH` environmental variable, you need to find the directory where VirtualBox is installed and then add that directory to your `PATH`. Here are the general steps:
 Once you've identified the directory containing `VBoxManage`, you can add it to the `PATH`:
 
-#### On Linux:
-
-```bash
 which VBoxManage 
 
 export PATH=$PATH:/usr/bin/VBoxManage
