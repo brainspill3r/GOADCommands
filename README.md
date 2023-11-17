@@ -4,7 +4,9 @@ Notes For Installing and avoiding errors.
 
 Helpful Links & Credits to. 
 https://github.com/Orange-Cyberdefense/GOAD/blob/main/docs/install_with_vmware.md
+
 https://github.com/quincyntuli/GOAD-v2-Installation-Notes
+
 https://www.youtube.com/watch?v=5ggZHnp7eXc
 
 
