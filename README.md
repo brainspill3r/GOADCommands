@@ -68,7 +68,7 @@ sudo apt-get install git-all
 sudo apt install htop
 ```
 
-### [Install Vagrant
+### Install Vagrant
 
 ```shell
 wget https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_x86_64.deb
