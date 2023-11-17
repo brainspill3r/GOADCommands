@@ -1,12 +1,10 @@
 # GOADCommands
-Notes For Installing and avoiding errors 
+Notes For Installing and avoiding errors. 
 
 
-Helpful Links
+Helpful Links & Credits to. 
 https://github.com/Orange-Cyberdefense/GOAD/blob/main/docs/install_with_vmware.md
-
 https://github.com/quincyntuli/GOAD-v2-Installation-Notes
-
 https://www.youtube.com/watch?v=5ggZHnp7eXc
 
 
@@ -31,7 +29,7 @@ Vagrant is an open-source tool for building and managing virtualized development
 ```
 
 
-### 1. **Enable Nested Virtualization in the VMware Host (Outer VM):**
+### **Enable Nested Virtualization in the VMware Host (Outer VM):**
 
 - Ensure that your VMware host (the outer VM) allows nested virtualization. This setting is often referred to as "Expose hardware-assisted virtualization to the guest OS" or something similar in VMware settings. It might be found in the virtual machine settings under the "Processor" or "CPU" section
 
@@ -51,10 +49,6 @@ which VBoxManage
 export PATH=$PATH:/usr/bin/VBoxManage
 ```
 
-![[Pasted image 20231114172905.png]]
-
-![[Pasted image 20231114192337.png]]
-
 ```shell
 
 300GB 
@@ -66,7 +60,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-### [03 Install Virtualbox](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#03-install-virtualbox)
+### Install Virtualbox
 
 ```shell
 sudo apt install virtualbox
@@ -74,7 +68,7 @@ sudo apt-get install git-all
 sudo apt install htop
 ```
 
-### [04 Install Vagrant](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#04-install-vagrant)
+### [Install Vagrant
 
 ```shell
 wget https://releases.hashicorp.com/vagrant/2.2.19/vagrant_2.2.19_x86_64.deb
@@ -88,20 +82,19 @@ sudo apt update && sudo apt install vagrant
 
 ```
 
-### [05 Install Python pip](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#05-install-python-pip)
+### Install Python pip
 
 ```shell
 sudo apt install python3-pip
 pip3 --version
 ```
 
-### [06 Install Python Virtual Environment](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#06-install-python-virtual-environment)
-
+### Install Python Virtual Environment
 ```shell
 sudo apt install python3-venv
 ```
 
-### [07 Clone GOAD v2](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#07-clone--goad-v2)
+### Clone GOAD v2
 
 ```shell
 git clone https://github.com/Orange-Cyberdefense/GOAD.git
@@ -113,20 +106,20 @@ if git is not installed, then install it first
 sudo apt-get install git-all
 ```
 
-### [08 Create the Virtual Environment](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#08-create-the-virtual-environment)
+### Create the Virtual Environment
 
 ```shell
 python3 -m venv venvGOAD
 ```
 
-### [09 Activate the Virtual Environment](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#09-activate-the-virtual-environment)
+### Activate the Virtual Environment
 
 ```shell
 cd GOAD/ansible
 source ~/venvGOAD/bin/activate
 ```
 
-### [10 Install ansible module](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#10-install-ansible-module)
+### Install ansible module
 
 ```shell
 ./goad.sh -t check -l GOAD -p virtualbox -m local
@@ -137,14 +130,14 @@ export PATH=$PATH:/usr/bin/VBoxManage
 
 ```
 
-### [12 Install galaxy requirements](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#12-install-galaxy-requirements)
+### Install galaxy requirements
 
 ```shell
 ansible-galaxy install -r requirements.yml (from within virtual enviroment)
 
 ```
 
-### [13 Lets play](https://github.com/quincyntuli/GOAD-v2-Installation-Notes#13-lets-play)
+### Using Vagrant 
 
 First, we let vagrant setup the 5 instances. The ISO will be downloaded and the VMs will be setup. If a local copy of the .iso already exists then this download part will be skipped and the machine will be imported from the .iso and built.
 
@@ -153,13 +146,11 @@ cd ad/GOAD/providers/virtualbox
 vagrant up
 ```
 
-At this stage the instructions tell us to play the plabook for all playbooks by executing
+At this stage the instructions tell us to play the plabook for all playbooks by executing.  However you can just keep running the main.yml file and all errors will eventually be fixed. 
 
 ```shell
 ansible-playbook main.yml
 ```
-
-My recommendation is to play the individuals plays books one by one to give each VM a chance to complete the build process so as to respond properly to the next set of tasks for each playbook.
 
 As copied from the official github, those steps are ...
 
@@ -168,7 +159,7 @@ cd ansible/
 ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory main.yml
 
 
-Or individually folloing the list below. However you can just keep running the main.yml file and all errors will eventually be fixed. 
+Or individually following the list below.
 
 ansible-playbook -i ../ad/GOAD/data/inventory -i ../ad/GOAD/providers/virtualbox/inventory servers.yml
 
@@ -185,15 +176,7 @@ ansible-playbook ad-acl.yml       # set the ACE/ACL
 ansible-playbook security.yml     # Configure some securities (adjust av enable/disable)
 ansible-playbook vulnarabilities.yml # Configure some vulnerabilities
 ```
-![[Pasted image 20231114193900.png]]
 
-![[Pasted image 20231114194738.png]]
-
-![[Pasted image 20231114195236.png]]
-![[Pasted image 20231114212839.png]]
-![[Pasted image 20231114213153.png]]
-
-![[Pasted image 20231114203607.png]]
 ```shell
 
 When you finish playing you could do :
@@ -205,6 +188,18 @@ To just relaunch the lab (no need to replay ansible as you already do that in th
 vagrant up   # will start the lab
 
 ```
+![image](https://github.com/brainspill3r/GOADCommands/assets/68113403/07d1616a-8f0b-4de3-ada6-d4de4f3c6f61)
+
+![image](https://github.com/brainspill3r/GOADCommands/assets/68113403/65dd8e58-ba77-48d6-9438-b35d351f79be)
+
+![image](https://github.com/brainspill3r/GOADCommands/assets/68113403/db361fff-86f2-4e15-a072-4ed93bc94569)
+
+
+If you see this error - likley you haven't selected VT-x 
+
+![image](https://github.com/brainspill3r/GOADCommands/assets/68113403/8ccc263d-ebef-4b55-92cb-f9fa6b2b69ac)
+
+
 
 
 
